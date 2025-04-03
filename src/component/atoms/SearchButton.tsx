@@ -6,7 +6,12 @@ type Props = {
 }
 
 const SearchButton: React.FC<Props> = ({onClick}) => {
-    return <Button onClick={onClick}>Search</Button>
+    return <Button
+                onClick={onClick}
+                variant="contained"
+            >
+                Search
+            </Button>
 }
 
 export default SearchButton;
