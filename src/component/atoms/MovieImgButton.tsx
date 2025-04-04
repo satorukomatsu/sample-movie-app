@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 
 type Props = {
-    srcUrl: string
+    srcUrl: string | undefined
     alt: string
     onClick: () => void
 }
