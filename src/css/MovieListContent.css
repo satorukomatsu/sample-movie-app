@@ -1,0 +1,9 @@
+.movieListBox {
+    display:flex;
+    width:80vw;
+    overflow:auto
+}
+
+.movieContentBox {
+    margin:5%;
+}
