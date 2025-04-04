@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import '../../css/MovieImgButton.css'
 
 type Props = {
     srcUrl: string | undefined
@@ -10,7 +11,7 @@ type Props = {
 const MovieImgButton: React.FC<Props> = ({srcUrl, alt, onClick}) => {
     return (
         <Button onClick={onClick}>
-            <img src={srcUrl} alt={alt}/>
+            <img className='Movie-image' src={srcUrl} alt={alt}/>
         </Button>
     )
 }

@@ -26,10 +26,10 @@ const MovieListContent: React.FC<Props> = ({movieList}) => {
     const onClickMovieImg = () => {}
     const baseUrl = "https://image.tmdb.org/t/p/original"
     return (
-        <Box className="movieListBox">
+        <Box className="Movie-list-box">
             {movieList.map((movie) => {
                 return (
-                    <Box className="movieContentBox" key={movie.id}>
+                    <Box className="Movie-content-box" key={movie.id}>
                         <MovieImgButton
                             srcUrl={movie.poster_path ? `${baseUrl}${movie.poster_path}` : undefined}
                             alt={movie.title}
