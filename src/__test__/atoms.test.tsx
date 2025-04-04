@@ -8,7 +8,7 @@ import DialogMovieDescription from '../component/atoms/DialogMovieDescription';
 import SearchTextInput from '../component/atoms/SearchTextInput';
 import SearchButton from '../component/atoms/SearchButton';
 
-describe("molecules test", () => {
+describe("atoms test", () => {
     test("render Category", () => {
         const title = 'test title'
         render(<Category title={title}/>);
