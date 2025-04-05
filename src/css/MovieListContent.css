@@ -13,3 +13,9 @@
 .Movie-content-box {
     margin:2%;
 }
+
+.Search-result-box {
+    display:flex;
+    width:80vw;
+    flex-wrap:wrap;
+}
