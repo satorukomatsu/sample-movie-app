@@ -1,3 +1,9 @@
+.Movie-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 .Movie-list-box {
     display:flex;
     width:80vw;
