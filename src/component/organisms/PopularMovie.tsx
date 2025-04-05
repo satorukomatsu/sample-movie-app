@@ -22,7 +22,7 @@ type Props = {
     }[]
 }
 
-const TopRatedMovie: React.FC<Props> = ({movieList}) => {
+const PopularMovie: React.FC<Props> = ({movieList}) => {
     return (
         <div className="Movie-list">
             <Category title="Popular"/>
@@ -31,4 +31,4 @@ const TopRatedMovie: React.FC<Props> = ({movieList}) => {
     )
 }
 
-export default TopRatedMovie;
+export default PopularMovie;

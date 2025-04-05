@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import TopRatedMovie from '../component/organisms/TopRatedMovie';
-import Popular from '../component/organisms/Popular';
+import PopularMovie from '../component/organisms/PopularMovie';
 
 describe("organisms test", () => {
     test("render Movie List ---Top Rated---", () => {
@@ -54,7 +54,7 @@ describe("organisms test", () => {
                     "vote_count": 520
                 }
         ];
-        render(<Popular movieList={movieListData} />);
+        render(<PopularMovie movieList={movieListData} />);
         const category = screen.getByText("Popular")
         expect(category).toBeTruthy();
         const buttons = screen.getAllByRole("button");
