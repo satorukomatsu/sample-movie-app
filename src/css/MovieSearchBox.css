@@ -1,0 +1,5 @@
+.Movie-search-box {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+}

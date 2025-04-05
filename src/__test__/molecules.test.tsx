@@ -14,7 +14,7 @@ describe("molecules test", () => {
         const onClick = jest.fn();
         const onChange = jest.fn();
         render(<MovieSearchBox text={text} onChange={onChange} onClick={onClick} />);
-        const input = screen.getByPlaceholderText("Search Word");
+        const input = screen.getByLabelText("Search Word");
         const button = screen.getByRole("button");
         expect(input).toBeTruthy();
         expect(button).toBeTruthy();

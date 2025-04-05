@@ -58,7 +58,7 @@ describe("atoms test", () => {
     test("render Search Text Input", () => {
         const onChange = jest.fn();
         render(<SearchTextInput text="" onChange={onChange} />)
-        const element = screen.getByPlaceholderText("Search Word");
+        const element = screen.getByLabelText("Search Word");
         expect(element).toBeTruthy();
         fireEvent.change(element, {
             target: {value: "sample value"}

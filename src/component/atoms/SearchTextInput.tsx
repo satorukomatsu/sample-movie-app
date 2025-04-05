@@ -9,9 +9,25 @@ type Props = {
 const SearchTextInput: React.FC<Props> = ({text, onChange}) => {
     return (
         <TextField
+            sx={{
+                label: {
+                    color: "#717171"
+                },
+                "& .MuiOutlinedInput-root": {
+                    "& input": {
+                        color: "white"
+                    },
+                    "& fieldset": {
+                        borderColor: "#717171"
+                    },
+                    "&:hover:not(.Mui-focused) fieldset": {
+                        borderColor: "white"
+                    }
+                }
+            }}
             value={text}
             onChange={(event) => onChange(event.target.value)}
-            placeholder="Search Word"
+            label="Search Word"
         />
     )
 }
