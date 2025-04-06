@@ -27,10 +27,17 @@ describe("atoms test", () => {
         const sampleImgUrl = "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg";
         const alt = "sample image";
         const onClick = jest.fn();
-        render(<MovieImgButton srcUrl={sampleImgUrl} alt={alt} onClick={onClick} />)
-        const element = screen.getByAltText(alt);
-        expect(element).toBeTruthy();
-        fireEvent.click(element);
+        render(<MovieImgButton srcUrl={sampleImgUrl} alt={alt} onClick={onClick} />);
+        const circularElement = screen.getByRole("progressbar");
+        expect(circularElement).toBeTruthy();
+        const img = new Image();
+        img.src = sampleImgUrl;
+        img.onload = () => {
+            const element = screen.getByAltText(alt);
+            expect(element).toBeTruthy();
+        }
+        const buttonElement = screen.getByRole("button");
+        fireEvent.click(buttonElement);
         expect(onClick).toHaveBeenCalledTimes(1)
     });
 
