@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Category from '../component/atoms/Category';
-import Title from '../component/atoms/Title';
+import TitleButton from '../component/atoms/TitleButton';
 import DialogMovieTitle from '../component/atoms/DialogMovieTitle';
 import MovieImgButton from '../component/atoms/MovieImgButton';
 import DialogMovieImg from '../component/atoms/DialogMovieImg';
@@ -17,7 +17,8 @@ describe("atoms test", () => {
     });
 
     test("render Title", () => {
-        render(<Title/>);
+        const onClick = jest.fn();
+        render(<TitleButton onClick={onClick}/>);
         const element = screen.getByText("Sample Movie App");
         expect(element).toBeTruthy()
     });
