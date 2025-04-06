@@ -1,5 +1,5 @@
 .Movie-search-box {
     display: flex;
-    width: 30%;
+    min-width: 350px;
     justify-content: space-around;
 }
