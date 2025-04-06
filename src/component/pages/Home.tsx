@@ -12,13 +12,22 @@ const Home: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const onSearchButtonClick = async () => {
-        navigate(`search-result?query=${text}`);
+    const onSearchButtonClick = () => {
+        navigate(`/search-result?query=${text}`);
+    }
+
+    const onTitleClick = () => {
+        navigate("/");
     }
 
     return (
         <>
-            <AppHeader text={text} onChange={handleChangeText} onClick={onSearchButtonClick}/>
+            <AppHeader
+                text={text}
+                onChange={handleChangeText}
+                onSearchButtonClick={onSearchButtonClick}
+                onTitleClick={onTitleClick}
+            />
             <HomeMovieContent/>
         </>
     )

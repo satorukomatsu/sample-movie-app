@@ -5,14 +5,20 @@ import MovieSearchBox from "../molecules/MovieSearchBox";
 type Props = {
     text: string
     onChange: (value: string) => void
-    onClick: () => void
+    onSearchButtonClick: () => void
+    onTitleClick: () => void
 }
 
-const AppHeader: React.FC<Props> = ({text, onChange, onClick}) => {
+const AppHeader: React.FC<Props> = ({
+    text,
+    onChange,
+    onSearchButtonClick,
+    onTitleClick
+}) => {
     return (
         <header className="App-header">
-            <TitleButton onClick={onClick}/>
-            <MovieSearchBox text={text} onChange={onChange} onClick={onClick}/>
+            <TitleButton onClick={onTitleClick}/>
+            <MovieSearchBox text={text} onChange={onChange} onClick={onSearchButtonClick}/>
         </header>
     )
 }
