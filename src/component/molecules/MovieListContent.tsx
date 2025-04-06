@@ -28,10 +28,13 @@ const MovieListContent: React.FC<Props> = ({movieList}) => {
     return (
         <Box className="Movie-list-box">
             {movieList.map((movie) => {
+                if (!movie.poster_path || !movie.overview) {
+                    return null;
+                }
                 return (
                     <Box className="Movie-content-box" key={movie.id}>
                         <MovieImgButton
-                            srcUrl={movie.poster_path ? `${baseUrl}${movie.poster_path}` : undefined}
+                            srcUrl={`${baseUrl}${movie.poster_path}`}
                             alt={movie.title}
                             onClick={onClickMovieImg}
                         />
