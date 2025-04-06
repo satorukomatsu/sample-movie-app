@@ -22,7 +22,7 @@ type Props = {
     }[]
 }
 
-const SearchResultContent: React.FC<Props> = ({movieList}) => {
+const SearchResultList: React.FC<Props> = ({movieList}) => {
     const onClickMovieImg = () => {}
     const baseUrl = "https://image.tmdb.org/t/p/original"
     return (
@@ -42,4 +42,4 @@ const SearchResultContent: React.FC<Props> = ({movieList}) => {
     )
 }
 
-export default SearchResultContent
+export default SearchResultList

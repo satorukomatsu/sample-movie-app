@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import MovieSearchBox from '../component/molecules/MovieSearchBox';
 import MovieListContent from '../component/molecules/MovieListContent';
-import SearchResultContent from '../component/molecules/SearchResultContent';
+import SearchResultContent from '../component/molecules/SearchResultList';
 
 describe("molecules test", () => {
     test("render Movie Search Box", () => {
