@@ -26,7 +26,7 @@ const PopularMovie: React.FC = () => {
     const [movieList, setMovieList] = useState<Movie[]>([]);
 
     const [searchParams] = useSearchParams();
-    const query = searchParams.get("query");
+    const query = searchParams.get("query") || "";
     
     useEffect(() => {
         async function searchMovie() {
