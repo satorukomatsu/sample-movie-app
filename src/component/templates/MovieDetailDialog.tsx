@@ -1,11 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import React from "react";
 import "../../css/MovieDetailDialog.css"
-
-type Genre = {
-    id: number
-    name: string
-}
+import { Genre } from "../../types/movie";
 
 type Props = {
     open: boolean

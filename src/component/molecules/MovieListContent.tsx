@@ -2,41 +2,10 @@ import React from "react";
 import MovieImgButton from "../atoms/MovieImgButton";
 import { Box } from "@mui/material";
 import "../../css/MovieListContent.css"
-
-type Movie = {
-    adult: boolean,
-    backdrop_path: string | null,
-    genre_ids: number[],
-    id: number,
-    original_language: string,
-    original_title: string,
-    overview: string,
-    popularity: number,
-    poster_path: string | null,
-    release_date: string,
-    title: string,
-    video: boolean,
-    vote_average: number,
-    vote_count: number
-}
+import { Movie } from "../../types/movie";
 
 type Props = {
-    movieList: {
-        adult: boolean,
-        backdrop_path: string | null,
-        genre_ids: number[],
-        id: number,
-        original_language: string,
-        original_title: string,
-        overview: string,
-        popularity: number,
-        poster_path: string | null,
-        release_date: string,
-        title: string,
-        video: boolean,
-        vote_average: number,
-        vote_count: number
-    }[]
+    movieList: Movie[]
     onClick: (movieInfo: Movie) => void
 }
 
