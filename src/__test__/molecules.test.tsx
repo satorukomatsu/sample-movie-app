@@ -39,7 +39,8 @@ describe("molecules test", () => {
                     "vote_count": 520
                 }
         ];
-        render(<MovieListContent movieList={movieListData} />);
+        const onClick = jest.fn();
+        render(<MovieListContent movieList={movieListData} onClick={onClick}/>);
         const buttons = screen.getAllByRole("button");
         expect(buttons).toBeTruthy();
     });
@@ -66,7 +67,8 @@ describe("molecules test", () => {
                     "vote_count": 520
                 }
         ];
-        render(<SearchResultContent movieList={movieListData} />);
+        const onClick = jest.fn();
+        render(<SearchResultContent movieList={movieListData} onClick={onClick}/>);
         const buttons = screen.getAllByRole("button");
         expect(buttons).toBeTruthy();
     });

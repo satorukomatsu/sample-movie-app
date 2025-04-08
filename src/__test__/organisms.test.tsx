@@ -25,7 +25,8 @@ describe("organisms test", () => {
                     "vote_count": 520
                 }
         ];
-        render(<TopRatedMovie movieList={movieListData} />);
+        const onClick = jest.fn();
+        render(<TopRatedMovie movieList={movieListData} onClick={onClick}/>);
         const category = screen.getByText("Top Rated")
         expect(category).toBeTruthy();
         const buttons = screen.getAllByRole("button");
@@ -54,7 +55,8 @@ describe("organisms test", () => {
                     "vote_count": 520
                 }
         ];
-        render(<PopularMovie movieList={movieListData} />);
+        const onClick = jest.fn();
+        render(<PopularMovie movieList={movieListData} onClick={onClick}/>);
         const category = screen.getByText("Popular")
         expect(category).toBeTruthy();
         const buttons = screen.getAllByRole("button");
