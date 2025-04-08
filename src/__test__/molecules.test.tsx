@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import MovieSearchBox from '../component/molecules/MovieSearchBox';
 import MovieListContent from '../component/molecules/MovieListContent';
 import SearchResultContent from '../component/molecules/SearchResultList';
+import { movieListData, searchResultMovieListData } from './testData';
 
 describe("molecules test", () => {
     test("render Movie Search Box", () => {
@@ -11,65 +12,23 @@ describe("molecules test", () => {
         render(<MovieSearchBox text={text} onChange={onChange} onClick={onClick} />);
         const input = screen.getByLabelText("Search Word");
         const button = screen.getByRole("button");
-        expect(input).toBeTruthy();
-        expect(button).toBeTruthy();
+        expect(input).toBeInTheDocument();
+        expect(button).toBeInTheDocument();
         fireEvent.click(button);
         expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     test("render Movie List Content", () => {
-        const movieListData = [
-                {
-                    "adult": false,
-                    "backdrop_path": "/uOQgMhYyu7dkXdHoRkCqZIF32M6.jpg",
-                    "genre_ids": [
-                        28,
-                        12
-                    ],
-                    "id": 1241320,
-                    "original_language": "ja",
-                    "original_title": "キングダム 大将軍の帰還",
-                    "overview": "Depicts a continuation of the \"Battle of Mayang\", an all-out war against the neighboring country Zhao that Shin and Wang Ki fought in in the previous work \"Flame of Fate\".",
-                    "popularity": 21.6962,
-                    "poster_path": "/qZKKwXyZ92K0mIRpf2FbCkQa7oO.jpg",
-                    "release_date": "2024-07-12",
-                    "title": "Kingdom IV: Return of the Great General",
-                    "video": false,
-                    "vote_average": 6.842,
-                    "vote_count": 520
-                }
-        ];
         const onClick = jest.fn();
         render(<MovieListContent movieList={movieListData} onClick={onClick}/>);
         const buttons = screen.getAllByRole("button");
-        expect(buttons).toBeTruthy();
+        expect(buttons).toHaveLength(movieListData.length);
     });
 
     test("render Search Result Content", () => {
-        const movieListData = [
-                {
-                    "adult": false,
-                    "backdrop_path": "/uOQgMhYyu7dkXdHoRkCqZIF32M6.jpg",
-                    "genre_ids": [
-                        28,
-                        12
-                    ],
-                    "id": 1241320,
-                    "original_language": "ja",
-                    "original_title": "キングダム 大将軍の帰還",
-                    "overview": "Depicts a continuation of the \"Battle of Mayang\", an all-out war against the neighboring country Zhao that Shin and Wang Ki fought in in the previous work \"Flame of Fate\".",
-                    "popularity": 21.6962,
-                    "poster_path": "/qZKKwXyZ92K0mIRpf2FbCkQa7oO.jpg",
-                    "release_date": "2024-07-12",
-                    "title": "Kingdom IV: Return of the Great General",
-                    "video": false,
-                    "vote_average": 6.842,
-                    "vote_count": 520
-                }
-        ];
         const onClick = jest.fn();
-        render(<SearchResultContent movieList={movieListData} onClick={onClick}/>);
+        render(<SearchResultContent movieList={searchResultMovieListData} onClick={onClick}/>);
         const buttons = screen.getAllByRole("button");
-        expect(buttons).toBeTruthy();
+        expect(buttons).toHaveLength(searchResultMovieListData.length);
     });
 });
