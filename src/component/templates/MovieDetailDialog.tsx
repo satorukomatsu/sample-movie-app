@@ -2,6 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import React from "react";
 import "../../css/MovieDetailDialog.css"
 import { Genre } from "../../types/movie";
+import string from "../../const/string";
 
 type Props = {
     open: boolean
@@ -34,7 +35,7 @@ const MovieDetailDialog: React.FC<Props> = ({
                 <DialogContent className="Movie-detail-dialog-content">
                     <img className="Movie-detail-dialog-image" src={srcUrl} alt={alt}/>
                     <div className="Content-detail-info">
-                        <h4>ジャンル</h4>
+                        <h4>{string.dialog.genre}</h4>
                         <p>
                             {genres.map((genre, index) => {
                                 return (
@@ -46,13 +47,13 @@ const MovieDetailDialog: React.FC<Props> = ({
                         </p>
                     </div>
                     <div className="Content-detail-info">
-                        <h4>詳細</h4>
+                        <h4>{string.dialog.detail}</h4>
                         <p>{overview}</p>
                     </div>
                 </DialogContent>
             </div>
             <DialogActions>
-                <Button variant="text" onClick={onClose}>閉じる</Button>
+                <Button variant="text" onClick={onClose}>{string.dialog.close}</Button>
             </DialogActions>
         </Dialog>
     )

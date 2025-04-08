@@ -3,6 +3,7 @@ import TopRatedMovie from "../organisms/TopRatedMovie";
 import PopularMovie from "../organisms/PopularMovie";
 import MovieDetailDialog from "./MovieDetailDialog";
 import { Movie, MovieDetail } from "../../types/movie";
+import externalUrl from "../../const/externalUrl";
 
 const HomeMovieContent: React.FC = () => {
     const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([]);
@@ -38,9 +39,8 @@ const HomeMovieContent: React.FC = () => {
 
     const onClickMovieImg = async(movieInfo: Movie) => {
         try {
-            const baseUrl = "https://api.themoviedb.org/3/movie";
             const apiKey = process.env.REACT_APP_TMDB_API_KEY;
-            const movieDetailUrl = `${baseUrl}/${movieInfo.id}?api_key=${apiKey}&language=ja`;
+            const movieDetailUrl = `${externalUrl.baseUrl}/${movieInfo.id}?api_key=${apiKey}&language=ja`;
             const response = await fetch(movieDetailUrl);
             if (response.status !== 200) {
                 throw new Error(`レスポンスステータス: ${response.status}`);
@@ -58,16 +58,14 @@ const HomeMovieContent: React.FC = () => {
     }
 
     useEffect(() => {
-        const baseUrl = "https://api.themoviedb.org/3/movie";
         const apiKey = process.env.REACT_APP_TMDB_API_KEY || "";
-        const topRatedUrl = `${baseUrl}/top_rated?api_key=${apiKey}&language=ja`;
-        const popularUrl = `${baseUrl}/popular?api_key=${apiKey}&language=ja`;
+        const topRatedUrl = `${externalUrl.baseUrl}/top_rated?api_key=${apiKey}&language=ja`;
+        const popularUrl = `${externalUrl.baseUrl}/popular?api_key=${apiKey}&language=ja`;
         
         fetchTopRated(topRatedUrl, apiKey);
         fetchPopular(popularUrl, apiKey);
     }, []);
 
-    const imgBaseUrl = "https://image.tmdb.org/t/p/original";
     return (
         <>
             <TopRatedMovie movieList={topRatedMovies} onClick={onClickMovieImg}/>
@@ -77,7 +75,7 @@ const HomeMovieContent: React.FC = () => {
                 onClose={onDialogClose}
                 title={dialogMovieInfo?.title || ""}
                 tagline={dialogMovieInfo?.tagline || ""}
-                srcUrl={`${imgBaseUrl}${dialogMovieInfo?.poster_path}`}
+                srcUrl={`${externalUrl.imgBaseUrl}${dialogMovieInfo?.poster_path}`}
                 alt={dialogMovieInfo?.title || ""}
                 overview={dialogMovieInfo?.overview || ""}
                 genres={dialogMovieInfo?.genres || []}

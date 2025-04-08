@@ -3,6 +3,7 @@ import MovieImgButton from "../atoms/MovieImgButton";
 import { Box } from "@mui/material";
 import "../../css/MovieListContent.css"
 import { Movie } from "../../types/movie";
+import externalUrl from "../../const/externalUrl";
 
 type Props = {
     movieList: Movie[]
@@ -10,7 +11,6 @@ type Props = {
 }
 
 const SearchResultList: React.FC<Props> = ({movieList, onClick}) => {
-    const baseUrl = "https://image.tmdb.org/t/p/original"
     return (
         <Box className="Search-result-box">
             {movieList.map((movie) => {
@@ -20,7 +20,7 @@ const SearchResultList: React.FC<Props> = ({movieList, onClick}) => {
                 return (
                     <Box className="Movie-content-box" key={movie.id}>
                         <MovieImgButton
-                            srcUrl={`${baseUrl}${movie.poster_path}`}
+                            srcUrl={`${externalUrl.imgBaseUrl}${movie.poster_path}`}
                             alt={movie.title}
                             onClick={() => onClick(movie)}
                         />
