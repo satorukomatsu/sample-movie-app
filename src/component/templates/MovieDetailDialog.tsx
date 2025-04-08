@@ -33,7 +33,7 @@ const MovieDetailDialog: React.FC<Props> = ({
             <div className="Movie-detail-dialog">
                 <DialogTitle>
                     <p className="Movie-detail-dialog-title">{title}</p>
-                    <p className="Movie-detail-dialog-tagline">{`「${tagline}」`}</p>
+                    {tagline ? <p className="Movie-detail-dialog-tagline">{`「${tagline}」`}</p> : null}
                 </DialogTitle>
                 <DialogContent className="Movie-detail-dialog-content">
                     <img className="Movie-detail-dialog-image" src={srcUrl} alt={alt}/>
