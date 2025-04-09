@@ -40,8 +40,8 @@ const MovieDetailDialog: React.FC<Props> = ({
                             {genres.map((genre, index) => {
                                 return (
                                     index < (genres.length - 1) ?
-                                    <span>{`${genre.name}, `}</span> :
-                                    <span>{genre.name}</span>
+                                    <span key={genre.id}>{`${genre.name}, `}</span> :
+                                    <span key={genre.id}>{genre.name}</span>
                                 )
                             })}
                         </p>
